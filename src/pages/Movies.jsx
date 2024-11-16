@@ -122,7 +122,7 @@ const Movies = () => {
     <div className='Movies'>
       {/* page heading */}
       <div className='flex justify-between px-24 pt-16 pb-12'>
-        <div className='text-white text-8xl font-medium'>
+        <div className='text-white text-6xl xl:text-8xl font-medium'>
           <h1>Discover Movies</h1>
         </div>
       </div>
@@ -155,7 +155,7 @@ const Movies = () => {
           return(
               <button onClick={() => handleMovieClick(movie.id)} key={index} style={{
                   backgroundImage: ` -webkit-linear-gradient(rgba(0,0,0, 0) 0%,rgba(0,0,0,1) 100%),url('https://image.tmdb.org/t/p/original/${movie.poster_path}')`,
-                }} className={`border-none text-white rounded-lg flex items-end border-2 m-4 w-1/5 h-[50vh] bg-cover bg-center card hover:scale-105 ease-in duration-200 hover:shadow-md hover:shadow-sky-500/50`}>              
+                }} className={`border-none text-white rounded-lg flex items-end border-2 m-4 w-3/4 md:w-1/3 xl:w-1/5 h-[50vh] bg-cover bg-center card hover:scale-105 ease-in duration-200 hover:shadow-md hover:shadow-sky-500/50`}>              
                 <div className="info px-4">
                   <div className="ori_title mb-2 text-3xl font-bold">
                     {movie.title}
