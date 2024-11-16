@@ -1,10 +1,9 @@
 import React from 'react'
 import { CiBookmark } from "react-icons/ci";
-
 import { NavLink } from 'react-router-dom'
 const Navbar = () => {
   return (
-    <div className='shadow-lg shadow-zinc-400/40'>
+    <div className='nav shadow-lg shadow-zinc-400/40'>
             <div className="bg-zinc-900 shadow-lg shadow-zinc-400/40  flex justify-between text-white">
                 <NavLink to="/">
                     <div className="logo  p-4 head text-xl font-medium">
