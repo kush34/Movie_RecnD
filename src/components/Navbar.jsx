@@ -1,4 +1,6 @@
 import React from 'react'
+import { CiBookmark } from "react-icons/ci";
+
 import { NavLink } from 'react-router-dom'
 const Navbar = () => {
   return (
@@ -16,8 +18,8 @@ const Navbar = () => {
                     <NavLink to="tvShows">
                         <div className="hover:text-sky-300 hover:scale-105 duration-200">TV Shows</div>
                     </NavLink>
-                    <NavLink to="tvShows">
-                        <div className="hover:text-sky-300 hover:scale-105 duration-200"></div>
+                    <NavLink to="liked">
+                        <div className="hover:text-sky-300 hover:scale-105 text-lg duration-200"><CiBookmark /></div>
                     </NavLink>
                 </div>
         </div>

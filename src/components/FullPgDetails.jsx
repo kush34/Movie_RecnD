@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Youtube from "react-youtube";
+import { likeMovie } from '../services/likeService';
+import { CiBookmark } from "react-icons/ci";
 
 const FullPgDetails = () => {
     const navigate = useNavigate();
@@ -13,6 +15,7 @@ const FullPgDetails = () => {
     const [providers, setProviders] = useState([]);
     const [videoId, setVideoId] = useState();
     const [flag, setFlag] = useState(false);
+
     //get list of providers where we can watch full movie
     const getProvidersMovie = async (movie_id) => {
         const options = {
@@ -120,8 +123,13 @@ const FullPgDetails = () => {
                                         <div>
                                             <h1 className='py-2 text-6xl  font-semibold'>{movieCur.title}</h1>
                                         </div>
-                                        <div>
-                                            <button className='bg-sky-500 px-8 py-2 font-medium text-lg rounded-md hover:scale-105 duration-100' onClick={() => handleWatch(movieCur.imdb_id)}>Watch</button>
+                                        <div className='flex gap-5'>
+                                            <div>
+                                                <button className='bg-sky-500 px-8 py-2 font-medium text-lg rounded-md hover:scale-105 duration-100' onClick={() => handleWatch(movieCur.imdb_id)}>Watch</button>
+                                            </div>
+                                            <div>
+                                                <button className='bg-sky-500 px-2 py-2 font-medium text-2xl rounded-md hover:scale-105 duration-100' onClick={()=>{likeMovie(movieCur.id)}}><CiBookmark /></button>
+                                            </div>
                                         </div>
                                     </div>
                                     <div className="desc">
@@ -136,7 +144,7 @@ const FullPgDetails = () => {
                                         <p>Watch on :</p>
                                         {providers.map((provider, index) => {
                                             return (
-                                                <div>
+                                                <div key={index}>
                                                     <div className="name">{provider.provider_name}</div>
                                                 </div>
                                             )
