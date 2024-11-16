@@ -4,7 +4,8 @@ import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Youtube from "react-youtube";
 import axios from 'axios';
-
+import { likeShow } from '../services/likeService';
+import { CiBookmark } from "react-icons/ci";
 
 const FullPgDetails = () => {
     const navigate = useNavigate();
@@ -98,8 +99,13 @@ const FullPgDetails = () => {
                                     <div>
                                         <h1 className='py-2 text-6xl  font-semibold'>{showCur.original_name}</h1>
                                     </div>
-                                    <div>
-                                        <button className='bg-sky-500 px-8 py-2 font-medium text-lg rounded-md hover:scale-105 duration-100' onClick={()=>handleWatch(showCur.id)}>Watch</button>
+                                    <div className='flex gap-5'>
+                                        <div >
+                                            <button className='bg-sky-500 px-2 py-2 font-medium text-2xl rounded-md hover:scale-105 duration-100' onClick={()=>{likeShow(showCur.id)}}><CiBookmark /></button>
+                                        </div>
+                                        <div>
+                                            <button className='bg-sky-500 px-8 py-2 font-medium text-lg rounded-md hover:scale-105 duration-100' onClick={()=>handleWatch(showCur.id)}>Watch</button>
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="desc">
