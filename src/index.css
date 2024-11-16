@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.Movies{
+    background-color: rgb(0, 0, 0);
+}
+*{
+    /* background-color: rgb(60, 60, 60); */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
