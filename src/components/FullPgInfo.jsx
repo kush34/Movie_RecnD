@@ -6,6 +6,8 @@ import Youtube from "react-youtube";
 import axios from 'axios';
 import { likeShow } from '../services/likeService';
 import { CiBookmark } from "react-icons/ci";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const FullPgDetails = () => {
     const navigate = useNavigate();
@@ -104,7 +106,7 @@ const FullPgDetails = () => {
                                             <button className='bg-sky-500 mx-4 md:m-0 px-8 py-2 w-[100%] md:w-[80%] font-medium xl:text-lg rounded-md xl:hover:scale-105 duration-100' onClick={()=>handleWatch(showCur.id)}>Watch</button>
                                         </div>
                                         <div >
-                                            <button className='bg-sky-500 px-2 py-2 font-medium text-2xl rounded-md hover:scale-105 duration-100' onClick={()=>{likeShow(showCur.id)}}><CiBookmark /></button>
+                                            <button className='bg-sky-500 px-2 py-2 font-medium text-2xl rounded-md hover:scale-105 duration-100' onClick={()=>{likeShow(showCur.id)}}><CiBookmark /><ToastContainer  /></button>
                                         </div>
                                     </div>
                                 </div>

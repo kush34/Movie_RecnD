@@ -1,3 +1,5 @@
+import {toast} from "react-toastify"
+
 //creates local storage for liked/Bookmarked movies
 export function likeMovie(movieId) {
     // Retrieve the existing movie IDs from local storage or initialize an empty array
@@ -7,13 +9,18 @@ export function likeMovie(movieId) {
     if (!currentMovieIds.includes(movieId)) {
         // Add the movie ID to the array
         currentMovieIds.push(movieId);
-        
         // Save the updated array back to local storage
         localStorage.setItem('movieIds', JSON.stringify(currentMovieIds));
+        
+        //Notification of bookmark sent
+        toast("Bookmarked")
         console.log(`Movie with ID ${movieId} liked and added to the list.`);
     } else {
         const updatedMovieIds = currentMovieIds.filter((ids)=>movieId!=ids);
         localStorage.setItem('movieIds',JSON.stringify(updatedMovieIds))
+
+        //Removed Notification
+        toast("Removed")
         console.log(`Movie with ID ${movieId} is removed from the list.`);
     }
 }
@@ -30,10 +37,15 @@ export function likeShow(showId) {
         
         // Save the updated array back to local storage
         localStorage.setItem('showIds', JSON.stringify(currentShowIds));
+        
+        //Notification of bookmark sent
+        toast("Bookmarked")
         console.log(`Movie with ID ${showId} liked and added to the list.`);
     } else {
         const updatedShowIds = currentShowIds.filter((ids)=>showId!=ids);
         localStorage.setItem('showIds',JSON.stringify(updatedShowIds))
+        //Removed Notification
+        toast("Removed")
         console.log(`Movie with ID ${showId} is removed from the list.`);
     }
 }
