@@ -93,28 +93,30 @@ const FullPgDetails = () => {
                                 backgroundPosition: "center",     // Centers the image
                                 backgroundRepeat: "no-repeat"
                             }}
-                            className='rounded-xl px-12  flex justify-end items-start flex-col h-[91vh]'>
+                            className='rounded-xl px-12  flex justify-end items-start flex-col h-[51vh] xl:h-[91vh]'>
                             <div className='pb-6 w-full text-white'>
-                                <div className='flex justify-between items-center w-full'>
+                                <div className='flex justify-between flex-col xl:flex-row items-center w-full'>
                                     <div>
                                         <h1 className='py-2 text-6xl  font-semibold'>{showCur.original_name}</h1>
                                     </div>
-                                    <div className='flex gap-5'>
+                                    <div className='flex gap-5 w-full justify-center md:justify-around xl:justify-end'>
+                                        <div className='w-full xl:w-36'>
+                                            <button className='bg-sky-500 mx-4 md:m-0 px-8 py-2 w-[100%] md:w-[80%] font-medium xl:text-lg rounded-md xl:hover:scale-105 duration-100' onClick={()=>handleWatch(showCur.id)}>Watch</button>
+                                        </div>
                                         <div >
                                             <button className='bg-sky-500 px-2 py-2 font-medium text-2xl rounded-md hover:scale-105 duration-100' onClick={()=>{likeShow(showCur.id)}}><CiBookmark /></button>
                                         </div>
-                                        <div>
-                                            <button className='bg-sky-500 px-8 py-2 font-medium text-lg rounded-md hover:scale-105 duration-100' onClick={()=>handleWatch(showCur.id)}>Watch</button>
-                                        </div>
                                     </div>
                                 </div>
-                                <div className="desc">
-                                    <p className='text-zinc-400'>{showCur.overview}</p>
-                                </div>
-                                <div className='flex gap-10 pt-2 pb-12'>
-                                    <p><strong>Release Date:</strong> {showCur.release_date}</p>
-                                    <p><strong>Vote Average:</strong> {showCur.vote_average}</p>
-                                    <p><strong>Popularity:</strong> {showCur.popularity}</p>
+                                <div className='hidden xl:inline'>
+                                    <div className="desc">
+                                        <p className='text-zinc-400'>{showCur.overview}</p>
+                                    </div>
+                                    <div className='flex gap-10 pt-2 pb-12'>
+                                        <p><strong>Release Date:</strong> {showCur.release_date}</p>
+                                        <p><strong>Vote Average:</strong> {showCur.vote_average}</p>
+                                        <p><strong>Popularity:</strong> {showCur.popularity}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -125,7 +127,7 @@ const FullPgDetails = () => {
                         return(
                             <button key={index} onClick={() => handleShowClick(movie.id)} style={{
                                 backgroundImage: ` -webkit-linear-gradient(rgba(0,0,0, 0) 0%,rgba(0,0,0,1) 100%),url('https://image.tmdb.org/t/p/original/${movie.poster_path}')`,
-                            }} className={`border-none text-white rounded-lg flex items-end border-2 m-4 w-1/5 h-[50vh] bg-cover bg-center card hover:scale-105 ease-in duration-200 hover:shadow-md hover:shadow-sky-500/50`}>
+                            }} className={`border-none text-white rounded-lg flex items-end border-2 m-4 w-3/4 md:w-1/3 xl:w-1/5 h-[50vh] bg-cover bg-center card hover:scale-105 ease-in duration-200 hover:shadow-md hover:shadow-sky-500/50`}>
                                 <div className="info px-4">
                                     <div className="ori_title mb-2 text-3xl font-bold">
                                         {movie.original_name}

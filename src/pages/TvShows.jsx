@@ -88,7 +88,7 @@ const Movies = () => {
           return(
               <div key={index} onClick={()=>handleClick(movie.id)} style={{
                 backgroundImage: ` -webkit-linear-gradient(rgba(0,0,0, 0) 0%,rgba(0,0,0,.9) 100%),url('https://image.tmdb.org/t/p/original/${movie.poster_path}')`,
-              }} className={`border-none text-white rounded-lg flex items-end border-2 m-4 w-1/5 h-[50vh] bg-cover bg-center card hover:scale-105 ease-in duration-200 hover:shadow-md hover:shadow-sky-500/50`}>              
+              }} className={`border-none text-white rounded-lg flex items-end border-2 m-4 w-3/4 md:w-1/3 xl:w-1/5 h-[50vh] bg-cover bg-center card hover:scale-105 ease-in duration-200 hover:shadow-md hover:shadow-sky-500/50`}>              
               <div className="info m-2">
                 <div className="ori_title mb-2 text-3xl font-bold">
                   {movie.name}

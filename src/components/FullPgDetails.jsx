@@ -91,15 +91,14 @@ const FullPgDetails = () => {
         <>
             <div className='bg-black'>
                 {flag ?
-                    (<div>
+                    (<div className='flex items-center justify-center flex-col'>
                         <Youtube
-                            className='px-36 py-8 rounded-lg'
+                            className='rounded-lg'
                             opts={{
-                                height: '720', width: '1200',
                                 playerVars: {
                                     // https://developers.google.com/youtube/player_parameters
                                     autoplay: 1,
-                                    controls: 0
+                                    // controls: 0
                                 },
                             }}
                             videoId={videoId} />
@@ -117,51 +116,53 @@ const FullPgDetails = () => {
                                     backgroundPosition: "center",     // Centers the image
                                     backgroundRepeat: "no-repeat"
                                 }}
-                                className='rounded-xl px-12  flex justify-end items-start flex-col h-[91vh]'>
+                                className='rounded-xl p-0 xl:px-12  flex justify-end items-start flex-col h-[51vh] xl:h-[91vh]'>
                                 <div className='pb-6 w-full text-white'>
-                                    <div className='flex justify-between items-center w-full'>
+                                    <div className='flex justify-between flex-col xl:flex-row items-center w-full'>
                                         <div>
-                                            <h1 className='py-2 text-6xl  font-semibold'>{movieCur.title}</h1>
+                                            <h1 className='py-2 text-xl xl:text-6xl  font-semibold'>{movieCur.title}</h1>
                                         </div>
-                                        <div className='flex gap-5'>
-                                            <div>
-                                                <button className='bg-sky-500 px-8 py-2 font-medium text-lg rounded-md hover:scale-105 duration-100' onClick={() => handleWatch(movieCur.imdb_id)}>Watch</button>
+                                        <div className='flex gap-5 w-full justify-center md:justify-around xl:justify-end'>
+                                            <div className='w-full xl:w-36'>
+                                                <button className='bg-sky-500 mx-4 md:m-0  px-8 py-2 w-[100%] md:w-[80%] font-medium xl:text-lg rounded-md xl:hover:scale-105 duration-100' onClick={() => handleWatch(movieCur.imdb_id)}>Watch</button>
                                             </div>
                                             <div>
                                                 <button className='bg-sky-500 px-2 py-2 font-medium text-2xl rounded-md hover:scale-105 duration-100' onClick={()=>{likeMovie(movieCur.id)}}><CiBookmark /></button>
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="desc">
-                                        <p className='text-zinc-400'>{movieCur.overview}</p>
-                                    </div>
-                                    <div className='flex gap-10 pt-2 pb-2'>
-                                        <p><strong>Release Date:</strong> {movieCur.release_date}</p>
-                                        <p><strong>Vote Average:</strong> {movieCur.vote_average}</p>
-                                        <p><strong>Popularity:</strong> {movieCur.popularity}</p>
-                                    </div>
-                                    <div className="providers pb-12 flex gap-4  ">
-                                        <p>Watch on :</p>
-                                        {providers.map((provider, index) => {
-                                            return (
-                                                <div key={index}>
-                                                    <div className="name">{provider.provider_name}</div>
-                                                </div>
-                                            )
-                                        })}
+                                    <div className='hidden xl:inline'>
+                                        <div className="desc">
+                                            <p className='text-zinc-400'>{movieCur.overview}</p>
+                                        </div>
+                                        <div className='flex gap-10 pt-2 pb-2'>
+                                            <p><strong>Release Date:</strong> {movieCur.release_date}</p>
+                                            <p><strong>Vote Average:</strong> {movieCur.vote_average}</p>
+                                            <p><strong>Popularity:</strong> {movieCur.popularity}</p>
+                                        </div>
+                                        <div className="providers pb-12 flex gap-4  ">
+                                            <p>Watch on :</p>
+                                            {providers.map((provider, index) => {
+                                                return (
+                                                    <div key={index}>
+                                                        <div className="name">{provider.provider_name}</div>
+                                                    </div>
+                                                )
+                                            })}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     )}
-                <div className="p-4 rounded movie-detail bg-black-900 w-full text-white">
-                </div>
-                <div className="list mt-2p pb-12 flex flex-wrap justify-center">
+                {/* <div className="p-4 rounded movie-detail bg-black-900 w-full text-white">
+                </div> */}
+                <div className="list mt-2p pb-12 flex flex-wrap flex-row justify-center">
                     {list.map((movie, index) => {
                         return (
                             <button key={index} onClick={() => handleMovieClick(movie.id)} style={{
                                 backgroundImage: ` -webkit-linear-gradient(rgba(0,0,0, 0) 0%,rgba(0,0,0,1) 100%),url('https://image.tmdb.org/t/p/original/${movie.poster_path}')`,
-                            }} className={`border-none text-white rounded-lg flex items-end border-2 m-4 w-1/5 h-[50vh] bg-cover bg-center card hover:scale-105 ease-in duration-200 hover:shadow-md hover:shadow-sky-500/50`}>
+                            }} className={`border-none text-white rounded-lg flex items-end border-2 m-4 w-3/4 md:w-1/4 xl:w-1/5 h-[50vh] bg-cover bg-center card hover:scale-105 ease-in duration-200 hover:shadow-md hover:shadow-sky-500/50`}>
                                 <div className="info px-4">
                                     <div className="ori_title mb-2 text-3xl font-bold">
                                         {movie.title}
